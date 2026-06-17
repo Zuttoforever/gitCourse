@@ -1,0 +1,18 @@
+In Azure Blob Storage, the relationship is hierarchical:
+
+Storage Account: The top-level resource and unique namespace. It acts as the billing and management boundary for all your storage data (blobs, files, queues, tables). You create one or more storage accounts per subscription, and it defines global settings like redundancy (LRS/ZRS/GRS), performance tier (Standard/Premium), and location.
+Container: A logical grouping (like a folder or bucket) that exists inside a storage account. It organizes related blobs. A storage account can contain thousands of containers. Containers are flat (no true subdirectories unless you enable hierarchical namespace for Data Lake Gen2).
+Blob: The actual data object (file) stored inside a container. Blobs can be Block Blobs (general files), Append Blobs (logging), or Page Blobs (VM disks). A container can hold millions of blobs.
+
+Simple Analogy:
+Storage Account = Hard drive
+Container = Top-level folder on the drive
+Blob = Individual file inside that folder
+Example:
+mystorageaccount.blob.core.windows.net/mycontainer/myfile.txt
+
+mystorageaccount → Storage Account
+mycontainer → Container
+myfile.txt → Blob
+
+This structure provides scalability, security (you can set permissions at container/blob level), and easy organization for massive amounts of unstructured data. Let me know if you want details on creating them or best practices!
